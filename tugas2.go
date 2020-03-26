@@ -3,8 +3,10 @@ package main
 import "fmt"
 
 //soal pertama
-func print_func(anonymous_func string) string {
-	return anonymous_func
+func anonymous_func() func (string) string {
+	return func (msg string) string {
+		return msg
+	}
 }
 
 func main(){
@@ -29,5 +31,7 @@ func main(){
 	
 	fmt.Println("Ganjil: ", ganjil)
 	fmt.Println("Genap: ", genap)
+
+	print_func := anonymous_func()
 	fmt.Println(print_func("Hi there anonymous"))
 }
